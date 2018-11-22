@@ -1,0 +1,45 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "managedInstanceName": {
+            "value": "sql-mi"
+        },
+        "location": {
+            "value": "canadacentral"
+        },
+        "administratorLogin": {
+            "value": "mariusdotnet"
+        },
+        "administratorLoginPassword": {
+            "value": null
+        },
+        "virtualNetworkResourceGroupName": {
+            "value": "sql-mi-vnet-rg"
+        },
+        "virtualNetworkName": {
+            "value": "sql-mi-vnet"
+        },
+        "subnetName": {
+            "value": "sql-mi"
+        },
+        "skuName": {
+            "value": "GP_Gen5"
+        },
+        "skuEdition": {
+            "value": "GeneralPurpose"
+        },
+        "storageSizeInGB": {
+            "value": 32
+        },
+        "vCores": {
+            "value": 8
+        },
+        "licenseType": {
+            "value": "LicenseIncluded"
+        },
+        "hardwareFamily": {
+            "value": "Gen5"
+        }
+    }
+}

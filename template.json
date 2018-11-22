@@ -1,0 +1,101 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "administratorLogin": {
+            "type": "string"
+        },
+        "administratorLoginPassword": {
+            "type": "securestring"
+        },
+        "location": {
+            "type": "string",
+            "defaultValue": "[resourceGroup().location]"
+        },
+        "managedInstanceName": {
+            "type": "string"
+        },
+        "virtualNetworkResourceGroupName": {
+            "type": "string"
+        },
+        "virtualNetworkName": {
+            "type": "string"
+        },
+        "subnetName": {
+            "type": "string"
+        },
+        "skuName": {
+            "type": "string",
+            "defaultValue": "GP_Gen5",
+            "allowedValues":[
+                "GP_Gen4",
+                "GP_Gen5",
+                "BC_Gen4",
+                "BC_Gen5"
+            ]
+        },
+        "skuEdition": {
+            "defaultValue": "GeneralPurpose",
+            "type": "string",
+            "allowedValues":[
+                "GeneralPurpose",
+                "BusinessCritical"
+            ]
+        },
+        "storageSizeInGB": {
+            "defaultValue": "32",
+            "type": "int",
+            "minValue": 32,
+            "maxValue": 8192
+        },
+        "vCores": {
+            "defaultValue": "8",
+            "type": "int",
+            "allowedValues":[
+                8,
+                16,
+                24,
+                32,
+                40,
+                64,
+                80
+            ] 
+        },
+        "licenseType": {
+            "defaultValue": "LicenseIncluded",
+            "type": "string",
+            "allowedValues":[
+                "BasePrice",
+                "LicenseIncluded"
+            ]
+        },
+        "hardwareFamily": {
+            "defaultValue": "Gen5",
+            "type": "string"
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Sql/managedInstances",
+            "sku": {
+                "name": "[parameters('skuName')]",
+                "tier": "[parameters('skuEdition')]"
+            },
+            "name": "[parameters('managedInstanceName')]",
+            "apiVersion": "2015-05-01-preview",
+            "location": "[parameters('location')]",
+            "identity": {
+                "type": "SystemAssigned"
+            },
+            "properties": {
+                "administratorLogin": "[parameters('administratorLogin')]",
+                "administratorLoginPassword": "[parameters('administratorLoginPassword')]",
+                "subnetId": "[resourceId(parameters('virtualNetworkResourceGroupName'), 'Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworkName'), parameters('subnetName'))]",
+                "storageSizeInGB": "[parameters('storageSizeInGB')]",
+                "vCores": "[parameters('vCores')]",
+                "licenseType": "[parameters('licenseType')]",
+                "hardwareFamily": "[parameters('hardwareFamily')]"
+            }
+        }
+    ]
+}  
