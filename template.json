@@ -72,6 +72,12 @@
         "hardwareFamily": {
             "defaultValue": "Gen5",
             "type": "string"
+        },
+        "ownerTag": {
+            "type": "string"
+        },
+        "purposeTag": {
+            "type": "string"
         }
     },
     "resources": [
@@ -80,6 +86,10 @@
             "sku": {
                 "name": "[parameters('skuName')]",
                 "tier": "[parameters('skuEdition')]"
+            },
+            "tags": {
+                "Owner":"[parameters('ownerTag')]",
+                "Purpose":"[parameters('purposeTag')]"
             },
             "name": "[parameters('managedInstanceName')]",
             "apiVersion": "2015-05-01-preview",

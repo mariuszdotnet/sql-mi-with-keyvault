@@ -3,7 +3,7 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "managedInstanceName": {
-            "value": "sql-mi"
+            "value": "mksqlmipipeline"
         },
         "location": {
             "value": "canadacentral"
@@ -40,6 +40,12 @@
         },
         "hardwareFamily": {
             "value": "Gen5"
+        },
+        "ownerTag": {
+            "value": "Mariusz Kolodziej"
+        },
+        "purposeTag": {
+            "value": "PoC"
         }
     }
 }
