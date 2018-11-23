@@ -3,13 +3,13 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "managedInstanceName": {
-            "value": "mksqlmipipeline"
+            "value": "mksqlmipipeline2"
         },
         "location": {
             "value": "canadacentral"
         },
         "administratorLogin": {
-            "value": "mariusdotnet"
+            "value": "mariuszdotnet"
         },
         "administratorLoginPassword": {
             "value": null

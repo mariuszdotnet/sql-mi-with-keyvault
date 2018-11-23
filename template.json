@@ -107,5 +107,11 @@
                 "hardwareFamily": "[parameters('hardwareFamily')]"
             }
         }
-    ]
+    ],
+    "outputs": {
+        "ServerObject": {
+            "type": "object",
+            "value": "[reference(parameters('managedInstanceName'))]"
+          }
+    }
 }  
