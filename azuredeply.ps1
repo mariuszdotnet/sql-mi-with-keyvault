@@ -40,3 +40,19 @@ New-AzureRmResourceGroup -Name $resourceGroupName -Location $resourceGroupLocati
 
 # Deleate Azure Resource Group
 #Remove-AzureRmResourceGroup -Name $resourceGroupName -Force
+
+# Set soft delete on KV for SQL MI TDE BYOK
+($resource = Get-AzureRmResource -ResourceId (Get-AzureRmKeyVault -VaultName "sql-mi-kv").ResourceId).Properties | Add-Member -MemberType "NoteProperty" -Name "enableSoftDelete" -Value "true" 
+Set-AzureRmResource -resourceid $resource.ResourceId -Properties $resource.Properties
+# Generate RSA Key for BYOK for TDE
+$key = Add-AzureKeyVaultKey -VaultName MyKeyVault -Name MyTDEKey -Destination Software -Size 2048
+
+
+
+## Test TDE
+$fileContentBytes = Get-Content 'C:\git\sql-mi-with-keyvault\TDE_CERT.pfx' -Encoding Byte
+$base64EncodedCert = [System.Convert]::ToBase64String($fileContentBytes)
+$securePrivateBlob = $base64EncodedCert  | ConvertTo-SecureString -AsPlainText -Force
+$password = "11supersecret!!"
+$securePassword = $password | ConvertTo-SecureString -AsPlainText -Force
+Add-AzureRmSqlManagedInstanceTransparentDataEncryptionCertificate -ResourceGroupName "sql-mi-vnet-rg" -ManagedInstanceName "mksqlmipipeline" -PrivateBlob $securePrivateBlob -Password $securePassword

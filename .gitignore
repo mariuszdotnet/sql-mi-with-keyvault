@@ -1,2 +1,3 @@
 # Ignore local setting files
 .vs
+template.1.json

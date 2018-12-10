@@ -3,7 +3,7 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "managedInstanceName": {
-            "value": "mksqlmipipeline2"
+            "value": "mksqlmipipeline"
         },
         "location": {
             "value": "canadacentral"
@@ -12,7 +12,7 @@
             "value": "mariuszdotnet"
         },
         "administratorLoginPassword": {
-            "value": null
+            "value": "111supersecret!!!"
         },
         "virtualNetworkResourceGroupName": {
             "value": "sql-mi-vnet-rg"
