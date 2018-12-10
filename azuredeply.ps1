@@ -50,7 +50,7 @@ $key = Add-AzureKeyVaultKey -VaultName MyKeyVault -Name MyTDEKey -Destination So
 
 
 ## Test TDE
-$fileContentBytes = Get-Content 'C:\git\sql-mi-with-keyvault\TDE_CERT.pfx' -Encoding Byte
+$fileContentBytes = Get-Content 'C:\git\sql-mi-with-keyvault\sample-certificate-tde\TDE_CERT.pfx' -Encoding Byte
 $base64EncodedCert = [System.Convert]::ToBase64String($fileContentBytes)
 $securePrivateBlob = $base64EncodedCert  | ConvertTo-SecureString -AsPlainText -Force
 $password = "11supersecret!!"
