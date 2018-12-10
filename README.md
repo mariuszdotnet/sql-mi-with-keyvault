@@ -6,5 +6,5 @@ This template allows you to create a [Azure SQL Database Managed Instances](http
 + Output the Server Object details including host name for the SQL MI
 + Template based on [this](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sqlmi-new-vnet) reference
 + To see the complete ARM defenition for this resource go [here](https://docs.microsoft.com/en-us/azure/templates/microsoft.sql/2015-05-01-preview/managedinstances)
-+ Added sample certifiacte for TDE and databasebackup for testing: see the [sample-certificate-tde](/sample-certificate-tde) folder
++ Added sample certifiacte for TDE and database backup for testing: see the [sample-certificate-tde](/sample-certificate-tde) folder
 + Added template for creation of KeyVault for TDE: see the [create-keyvault-for-tde](/create-keyvault-for-tde) folder
