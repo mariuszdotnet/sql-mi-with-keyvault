@@ -1,0 +1,21 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "managedInstanceName": {
+            "value": "mksqlmipipeline"
+        },
+        "location": {
+            "value": "canadacentral"
+        },
+        "keyVaultName": {
+            "value": "sql-mi-kv"
+        },
+        "keyName": {
+            "value": "myRSAKey"
+        },
+        "keyVersion": {
+            "value": "241775b2eb374c78bb94604b1d34c081"
+        }
+    }
+}
