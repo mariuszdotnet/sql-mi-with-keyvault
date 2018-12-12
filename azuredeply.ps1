@@ -3,7 +3,6 @@
 # The subscriptionId
 $subscriptionId = '5aec60e9-f535-4bd7-a951-2833f043e918'
 
-
 # Root path to script, template and parameters.  All have to be in the same folder.
 $rootPathToFiles = (Get-Item -Path ".\").FullName
 
@@ -46,8 +45,6 @@ New-AzureRmResourceGroup -Name $resourceGroupName -Location $resourceGroupLocati
 Set-AzureRmResource -resourceid $resource.ResourceId -Properties $resource.Properties
 # Generate RSA Key for BYOK for TDE
 $key = Add-AzureKeyVaultKey -VaultName MyKeyVault -Name MyTDEKey -Destination Software -Size 2048
-
-
 
 ## Test TDE
 $fileContentBytes = Get-Content 'C:\git\sql-mi-with-keyvault\sample-certificate-tde\TDE_CERT.pfx' -Encoding Byte

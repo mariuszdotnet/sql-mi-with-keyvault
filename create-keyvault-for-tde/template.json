@@ -80,5 +80,11 @@
                 }
             }
         }
-    ]
+    ],
+    "outputs": {
+        "ServerObject": {
+            "type": "object",
+            "value": "[reference(parameters('keyVaultName'))]"
+        }
+    }
 }
