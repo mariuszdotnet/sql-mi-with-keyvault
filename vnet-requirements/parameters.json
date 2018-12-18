@@ -1,0 +1,21 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "resourceSuffix": {
+            "value": "sql-mi"
+        },
+        "location": {
+            "value": "canadacentral"
+        },
+        "virtualNetworkName": {
+            "value": "sql-mi-vnet"
+        },
+        "subnetName": {
+            "value": "sql-mi"
+        },
+        "miSubnetRange": {
+            "value": "10.0.0.0/27"
+        }
+    }
+} 
