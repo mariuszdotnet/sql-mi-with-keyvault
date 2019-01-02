@@ -3,6 +3,9 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "managedInstanceName": {
+            "value": "mksqlmipipeline-dr"
+        },
+        "dnsZonePartnerName": {
             "value": "mksqlmipipeline"
         },
         "location": {
@@ -13,6 +16,9 @@
         },
         "administratorLoginPassword": {
             "value": "111supersecret!!!"
+        },
+        "dnsZonePartnerNameResourceGroupName": {
+            "value": "sql-mi-rg"
         },
         "virtualNetworkResourceGroupName": {
             "value": "sql-mi-vnet-rg"

@@ -15,6 +15,12 @@
         "managedInstanceName": {
             "type": "string"
         },
+        "dnsZonePartnerName": {
+            "type": "string"
+        },
+        "dnsZonePartnerNameResourceGroupName": {
+            "type": "string"
+        },
         "virtualNetworkResourceGroupName": {
             "type": "string"
         },
@@ -104,7 +110,8 @@
                 "storageSizeInGB": "[parameters('storageSizeInGB')]",
                 "vCores": "[parameters('vCores')]",
                 "licenseType": "[parameters('licenseType')]",
-                "hardwareFamily": "[parameters('hardwareFamily')]"
+                "hardwareFamily": "[parameters('hardwareFamily')]",
+                "dnsZonePartner": "[resourceId(parameters('dnsZonePartnerNameResourceGroupName'), 'Microsoft.Sql/managedInstances', parameters('dnsZonePartnerName'))]"
             }
         }
     ],

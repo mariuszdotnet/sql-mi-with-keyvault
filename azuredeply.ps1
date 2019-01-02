@@ -1,4 +1,4 @@
-# Variables that need to be set to start working with ARM.
+# Variables that need to be set to start working with ARM, lets make some changes.
 
 # The subscriptionId
 $subscriptionId = '5aec60e9-f535-4bd7-a951-2833f043e918'
