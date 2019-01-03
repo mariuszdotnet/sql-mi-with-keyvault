@@ -9,7 +9,7 @@
             "value": "mksqlmipipeline"
         },
         "location": {
-            "value": "canadacentral"
+            "value": "eastus2"
         },
         "administratorLogin": {
             "value": "mariuszdotnet"
@@ -21,13 +21,13 @@
             "value": "sql-mi-rg"
         },
         "virtualNetworkResourceGroupName": {
-            "value": "sql-mi-vnet-rg"
+            "value": "sql-mi-vnet-dr-rg"
         },
         "virtualNetworkName": {
-            "value": "sql-mi-vnet"
+            "value": "sql-mi-vnet-dr"
         },
         "subnetName": {
-            "value": "sql-mi"
+            "value": "sql-mi-dr"
         },
         "skuName": {
             "value": "GP_Gen5"
