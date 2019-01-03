@@ -1,0 +1,33 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "failoverGroupName": {
+            "value": "sql-mi-fg"
+        },
+        "primaryRegion": {
+            "value": "CanadaCentral"
+        },
+        "partnerRegion": {
+            "value": "eastus2"
+        },
+        "failoverPolicy": {
+            "value": "Automatic"
+        },
+        "gracePeriodMinutes": {
+            "value": 60
+        },
+        "readOnlyEndpoint": {
+            "value": "Enabled"
+        },
+        "managedInstanceResourceGroup": {
+            "value": "sql-mi-rg"
+        },
+        "primaryMaangedInstanceName": {
+            "value": "mksqlmipipeline"
+        },
+        "secondaryMaangedInstanceName": {
+            "value": "mksqlmipipeline-dr"
+        }
+    }
+}

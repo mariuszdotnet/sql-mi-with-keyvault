@@ -1,0 +1,72 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "failoverGroupName": {
+            "type": "string"
+        },
+        "primaryRegion": {
+            "type": "string"
+        },
+        "partnerRegion": {
+            "type": "string"
+        },
+        "failoverPolicy": {
+            "type": "string"
+        },
+        "gracePeriodMinutes": {
+            "type": "int"
+        },
+        "readOnlyEndpoint": {
+            "type": "string"
+        },
+        "managedInstanceResourceGroup": {
+            "type": "string"
+        },
+        "primaryMaangedInstanceName": {
+            "type": "string"
+        },
+        "secondaryMaangedInstanceName": {
+            "type": "string"
+        }
+
+    },
+    "variables": {
+        "primaryManagedInstanceId": "[resourceId(parameters('managedInstanceResourceGroup'), 'Microsoft.Sql/managedInstances', parameters('primaryMaangedInstanceName'))]",
+        "partnerManagedInstanceId": "[resourceId(parameters('managedInstanceResourceGroup'), 'Microsoft.Sql/managedInstances', parameters('secondaryMaangedInstanceName'))]"
+
+    },
+    "resources": [
+    {
+        "name": "[concat('/',parameters('primaryRegion'),'/',parameters('failoverGroupName'))]",
+        "type": "Microsoft.Sql/locations/instanceFailoverGroups",
+        "apiVersion": "2017-10-01-preview",
+        "properties": {
+            "readWriteEndpoint": {
+                "failoverPolicy": "[parameters('failoverPolicy')]",
+                "failoverWithDataLossGracePeriodMinutes": "[parameters('gracePeriodMinutes')]"
+            },
+            "readOnlyEndpoint": {
+                "failoverPolicy": "[parameters('readOnlyEndpoint')]"
+            },
+            "partnerRegions": [
+            {
+                "location": "[parameters('partnerRegion')]"
+            }
+            ],
+            "managedInstancePairs": [
+            {
+                "primaryManagedInstanceId": "[variables('primaryManagedInstanceId')]",
+                "partnerManagedInstanceId": "[variables('partnerManagedInstanceId')]"
+            }
+            ]
+        }
+    }
+    ],
+    "outputs": {
+        "ServerObject": {
+            "type": "object",
+            "value": "[reference(parameters('failoverGroupName'))]"
+          }
+    }
+}  
