@@ -37,11 +37,5 @@
             "retentionDays": "[parameters('retentionDays')]"
         }
     }
-    ],
-    "outputs": {
-        "ServerObject": {
-            "type": "object",
-            "value": "[reference(parameters('securityAlertPolicyName'))]"
-          }
-    }
+    ]
 }  

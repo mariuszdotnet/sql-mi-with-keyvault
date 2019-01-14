@@ -6,15 +6,15 @@
             "value": "mksqlmipipeline"
         },
         "storageContainerPath":{
-            "value": "https://sqlmi.blob.core.windows.net/threat-alerts"
+            "value": "https://sqlmi.blob.core.windows.net"
         },
         "storageAccountAccessKey":{
-            "value": "XXXXXXXXXX"
+            "value": "XXXXXXXXXXXXXXXXXXXX"
         },
         "emails": {
             "value": [
-              "email@email1.com",
-              "email@email2.com"
+              "email@email.com",
+              "email2@email.com"
             ]
         },
         "retentionDays": {
