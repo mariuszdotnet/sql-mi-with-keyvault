@@ -1,0 +1,28 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "databaseName": {
+            "type": "string"
+        },
+        "managedInstanaceName":{
+            "type": "string"
+        },
+        "retentionDays":{
+            "type": "int",
+            "defaultValue": 7,
+            "minValue": 7,
+            "maxValue": 35
+        }
+    },
+    "resources": [
+    {
+        "name": "[concat('/',parameters('managedInstanaceName'),'/',parameters('databaseName'),'/default')]",
+        "type": "Microsoft.Sql/managedInstances/databases/backupShortTermRetentionPolicies",
+        "apiVersion": "2017-03-01-preview",
+        "properties": {
+            "retentionDays": "[parameters('retentionDays')]"
+        }
+    }
+    ]
+}  
