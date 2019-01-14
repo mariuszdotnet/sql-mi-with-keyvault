@@ -1,0 +1,47 @@
+{
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "securityAlertPolicyName": {
+            "type": "string",
+            "defaultValue": "Default"
+        },
+        "managedInstanaceName":{
+            "type": "string"
+        },
+        "storageContainerPath":{
+            "type": "string"
+        },
+        "storageAccountAccessKey":{
+            "type": "securestring"
+        },
+        "emails":{
+            "type": "array"
+        },
+        "retentionDays":{
+            "type": "int"
+        }
+    },
+    "resources": [
+    {
+        "name": "[concat('/',parameters('managedInstanaceName'),'/',parameters('securityAlertPolicyName'))]",
+        "type": "Microsoft.Sql/managedInstances/securityAlertPolicies",
+        "apiVersion": "2017-03-01-preview",
+        "properties": {
+            "state": "Enabled",
+            "disabledAlerts": [],
+            "emailAddresses": "[parameters('emails')]",
+            "emailAccountAdmins": false,
+            "storageEndpoint": "[parameters('storageContainerPath')]",
+            "storageAccountAccessKey": "[parameters('storageAccountAccessKey')]",
+            "retentionDays": "[parameters('retentionDays')]"
+        }
+    }
+    ],
+    "outputs": {
+        "ServerObject": {
+            "type": "object",
+            "value": "[reference(parameters('securityAlertPolicyName'))]"
+          }
+    }
+}  

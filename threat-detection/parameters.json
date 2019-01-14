@@ -1,0 +1,24 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "managedInstanaceName": {
+            "value": "mksqlmipipeline"
+        },
+        "storageContainerPath":{
+            "value": "https://sqlmi.blob.core.windows.net/threat-alerts"
+        },
+        "storageAccountAccessKey":{
+            "value": "XXXXXXXXXX"
+        },
+        "emails": {
+            "value": [
+              "email@email1.com",
+              "email@email2.com"
+            ]
+        },
+        "retentionDays": {
+            "value": 5
+        }
+    }
+}
