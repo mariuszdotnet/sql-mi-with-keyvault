@@ -1,0 +1,21 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "managedInstanceName": {
+            "value": "mksqlmipipeline"
+        },
+        "location": {
+            "value": "canadacentral"
+        },
+        "settingName": {
+            "value": "sqlsecaudit"
+        },
+        "eventHubName": {
+            "value": "sqlaudit"
+        },
+        "eventHubAuthorizationRuleId": {
+            "value": "/subscriptions/5aec60e9-f535-4bd7-a951-2833f043e918/resourceGroups/cloud-shell-storage-southcentralus/providers/Microsoft.EventHub/namespaces/sqlmimk/authorizationrules/RootManageSharedAccessKey"
+        }
+    }
+}
